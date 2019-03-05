@@ -13,7 +13,6 @@ export class TaskListItemComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

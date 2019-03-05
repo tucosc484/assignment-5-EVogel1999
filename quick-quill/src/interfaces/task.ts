@@ -1,8 +1,8 @@
 
 export interface Task {
     id: number;
-    dateCreated: Date;
+    dateCreated: number;
     description: string;
     isComplete: boolean;
-    dateCompleted: Date;
+    dateCompleted?: number;
 }

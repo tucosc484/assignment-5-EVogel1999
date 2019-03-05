@@ -4,5 +4,10 @@
     Tasks
   </div>
   <hr>
-  <app-task-list-item *ngFor="let task of tasks" [task]="task"></app-task-list-item>
+  <div *ngIf="tasks; else loading">
+    <app-task-list-item *ngFor="let task of tasks" [task]="task"></app-task-list-item>
+  </div>
+  <ng-template #loading>
+    <mat-spinner></mat-spinner>
+  </ng-template>
 </div>

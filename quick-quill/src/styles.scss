@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Oxygen');
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "./vars";
 
 body {
@@ -7,4 +8,7 @@ body {
     padding: 0px;
     background-color: $light-blue;
     font-family: 'Oxygen', sans-serif;
+}
+.mat-progress-spinner circle, .mat-spinner circle {
+    stroke: $white;
 }
