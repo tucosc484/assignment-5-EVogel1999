@@ -1,0 +1,25 @@
+
+@import '../../vars';
+
+.task_wrapper {
+    width: 340px;
+    height: 200px;
+    border-top-width: 15px;
+    border-top-style: solid;
+    border-top-color: $grey;
+    background-color: $tinted-white;
+    box-shadow: 2px 2px 15px $grey;
+    padding: 10px;
+    color: $grey;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 50px 30px 10px 30px;
+    display: block;
+    text-align: left;
+}
+.complete {
+    border-top-color: $green;
+}
+.task_center {
+    display: inline-block;
+}

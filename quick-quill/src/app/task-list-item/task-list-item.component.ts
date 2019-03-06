@@ -11,8 +11,12 @@ export class TaskListItemComponent implements OnInit {
   @Input()
   task: Task;
 
+  description: string;
+
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.description = this.task.description.substring(0, 400) + '...';
+  }
 
 }

@@ -1,5 +1,6 @@
 
-<div *ngIf="task">
-  {{ task.description }}
+<div class="task_center">
+  <div class="task_wrapper" [ngClass]="{ 'complete': task.isComplete }">
+    {{ description }}
+  </div>
 </div>
-
