@@ -4,7 +4,7 @@
     Tasks
   </div>
   <hr>
-  <div *ngIf="tasks; else loading" class="task_wrapper">
+  <div *ngIf="tasks !== undefined || !error; else loading" class="task_wrapper">
     <app-task-list-item *ngFor="let task of tasks" [task]="task"></app-task-list-item>
   </div>
   <ng-template #loading>

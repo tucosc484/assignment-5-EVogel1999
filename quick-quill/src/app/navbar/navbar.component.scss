@@ -23,14 +23,22 @@ img {
     }
 }
 .hamburger_menu {
+    transition-duration: .2s;
+    -moz-transition-duration: .2s;
     float: right;
     background-color: transparent;
+    color: $white;
+    font-size: 18px;
     border: none;
     padding: 0px;
     margin: 0px;
+    height: 100%;
+    width: 150px;
+    cursor: pointer;
 
-    img {
-        padding: 5px 50px 5px 5px;
-        margin: 0px;
+    &:hover {
+        transition-duration: .4s;
+        -moz-transition-duration: .4s;
+        background-color: $grey;
     }
 }

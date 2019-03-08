@@ -9,6 +9,7 @@ import { Task } from '../../interfaces/task';
 export class TaskListComponent implements OnInit {
 
   tasks: Task[];
+  error: false;
 
   constructor() { }
 
