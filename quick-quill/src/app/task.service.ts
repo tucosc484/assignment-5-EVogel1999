@@ -1,31 +1,37 @@
 import { Injectable } from '@angular/core';
+import { of, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
 
-  private storage = window.localStorage;
-
   constructor() { }
 
-  createTask() {
+  createTask(data) {
 
   }
 
   updateTask(id: number, data) {
-    //this.storage.setItem('' + id, JSON.stringify(data));
+    //localStorage.setItem('' + id, JSON.stringify(data));
   }
 
   deleteTask(id: number) {
-    //this.storage.removeItem('' + id);
+    //localStorage.removeItem('' + id);
   }
 
   getTask(id: number) {
-    //return this.storage.getItem('' + id);
+    //localStorage.getItem('' + id);
   }
 
-  getTasks() {
+  getTasks(): Observable<any[]> {
+    const keys = Object.keys(localStorage);
+    const total = keys.length;
 
+    let result = [];
+    for (let i = 0; i < total; i++)
+      result.push(localStorage.getItem(keys[i]));
+
+    return of(result);
   }
 }

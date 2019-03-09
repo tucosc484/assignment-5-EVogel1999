@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../../interfaces/task';
 
+import { TaskService } from '../task.service';
+
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
@@ -8,11 +10,18 @@ import { Task } from '../../interfaces/task';
 })
 export class TaskListComponent implements OnInit {
 
-  tasks: Task[];
+  tasks: Task[] = [];
   error: false;
 
-  constructor() { }
+  constructor(private service: TaskService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.service.getTasks().subscribe(tasks => {
+      if (tasks)
+        tasks.map(task => {
+          this.tasks.push(JSON.parse(task));
+        });
+    });
+  }
 
 }
