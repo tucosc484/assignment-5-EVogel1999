@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskListItemComponent } from './task-list-item/task-list-item.component';
+import { CreateTaskComponent } from './create-task/create-task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     TaskListComponent,
-    TaskListItemComponent
+    TaskListItemComponent,
+    CreateTaskComponent
   ],
   imports: [
     BrowserModule,
