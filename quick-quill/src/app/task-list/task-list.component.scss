@@ -22,3 +22,27 @@ mat-spinner {
 .task_wrapper {
     text-align: center;
 }
+.no_tasks {
+    margin-top: 100px;
+    color: $white;
+    font-size: 18px;
+
+    button {
+        -moz-transition-duration: .2s;
+        transition-duration: .2s;
+        background-color: $dark-blue;
+        color: $white;
+        cursor: pointer;
+        padding: 20px;
+        font-size: 18px;
+        border: none;
+        margin-top: 50px;
+        width: 250px;
+
+        &:hover {
+            -moz-transition-duration: .4s;
+            transition-duration: .4s;
+            background-color: $grey;
+        }
+    }
+}

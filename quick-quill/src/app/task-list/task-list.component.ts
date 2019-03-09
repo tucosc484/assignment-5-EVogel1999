@@ -11,7 +11,7 @@ import { TaskService } from '../task.service';
 export class TaskListComponent implements OnInit {
 
   tasks: Task[] = [];
-  error: false;
+  error;
 
   constructor(private service: TaskService) { }
 
@@ -21,7 +21,8 @@ export class TaskListComponent implements OnInit {
         tasks.map(task => {
           this.tasks.push(JSON.parse(task));
         });
-    });
+    },
+    e => this.error = e );
   }
 
 }

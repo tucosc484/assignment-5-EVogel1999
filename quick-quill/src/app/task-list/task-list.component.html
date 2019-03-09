@@ -5,6 +5,11 @@
   </div>
   <hr>
   <div *ngIf="tasks !== undefined || !error; else loading" class="task_wrapper">
+    <div *ngIf="tasks.length === 0" class="no_tasks">
+      You have no tasks!
+      <br>
+      <button>Create Task</button>
+    </div>
     <app-task-list-item *ngFor="let task of tasks" [task]="task"></app-task-list-item>
   </div>
   <ng-template #loading>
