@@ -8,7 +8,7 @@
     <div *ngIf="tasks.length === 0" class="no_tasks">
       You have no tasks!
       <br>
-      <button>Create Task</button>
+      <button routerLink="/tasks/create" routerLinkActive="active">Create Task</button>
     </div>
     <app-task-list-item *ngFor="let task of tasks" [task]="task"></app-task-list-item>
   </div>
