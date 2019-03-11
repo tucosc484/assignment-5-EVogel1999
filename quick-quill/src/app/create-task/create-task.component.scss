@@ -1,0 +1,64 @@
+
+@import '../../vars';
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: $white;
+}
+textarea {
+    width: 100%;
+    height: 300px;
+    vertical-align: top;
+    padding: 20px;
+    background-color: $tinted-white;
+    border-style: solid;
+    font-size: 16px;
+}
+button {
+    -moz-transition-duration: .2s;
+    transition-duration: .2s;
+    margin-right: 40px;
+    margin-top: 40px;
+    background-color: $grey;
+    border: none;
+    color: $white;
+    padding: 25px;
+    font-size: 16px;
+    width: 150px;
+    box-shadow: 2px 2px 15px $grey;
+    cursor: pointer;
+
+    &:hover {
+        -moz-transition-duration: .4s;
+        transition-duration: .4s;
+        background-color: $grey;
+    }
+}
+.textarea_wrapper {
+    margin-right: 45px;
+    margin-top: 20px;
+}
+.wrapper {
+    margin: 40px 200px;
+}
+.form {
+    background-color: $tinted-white;
+    padding: 20px;
+    color: $grey;
+    font-size: 16px;
+    margin-top: 50px;
+    box-shadow: 2px 2px 15px $grey;
+}
+.title {
+    text-align: center;
+    font-size: 36px;
+    color: $white;
+    margin-bottom: 10px;
+}
+.discard {
+    background-color: $red;
+}
+.create {
+    background-color: $green;
+}

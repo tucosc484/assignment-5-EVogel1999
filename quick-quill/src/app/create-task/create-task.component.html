@@ -1,3 +1,17 @@
-<p>
-  create-task works!
-</p>
+
+<div class="wrapper">
+  <div class="title">
+    Create Task
+  </div>
+  <hr>
+  <form>
+    <div class="form">
+      <div>Task Description:</div>
+      <div class="textarea_wrapper">
+        <textarea></textarea>
+      </div>
+    </div>
+    <button [ngClass]="{ 'discard': true }">Discard</button>
+    <button [ngClass]="{ 'create': true }">Create</button>
+  </form>
+</div>
