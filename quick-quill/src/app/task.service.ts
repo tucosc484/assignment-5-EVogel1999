@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { of, Observable } from 'rxjs';
+import { Task } from '../interfaces/task';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,17 @@ export class TaskService {
   constructor() { }
 
   createTask(data) {
+    let id = this.createID();
+    let task: Task = {
+      id: id,
+      dateCreated: Date.now(),
+      description: data,
+      isComplete: false
+    };
 
+    localStorage.setItem('' + id, JSON.stringify(task));
+
+    return of(JSON.stringify(task));
   }
 
   updateTask(id: number, data) {
@@ -35,7 +46,7 @@ export class TaskService {
     return of(result);
   }
 
-  private createID() {
+  private createID(): number {
     const keys = Object.keys(localStorage);
     let id = 1;
 
@@ -45,7 +56,7 @@ export class TaskService {
         break;
       id++;
     }
-    
+
     return id;
   }
 }
