@@ -26,11 +26,11 @@ export class TaskService {
 
   getTasks(): Observable<any[]> {
     const keys = Object.keys(localStorage);
-    const total = keys.length;
 
     let result = [];
-    for (let i = 0; i < total; i++)
-      result.push(localStorage.getItem(keys[i]));
+    keys.forEach(key => {
+      result.push(localStorage.getItem(key));
+    });
 
     return of(result);
   }
@@ -38,12 +38,14 @@ export class TaskService {
   private createID() {
     const keys = Object.keys(localStorage);
     let id = 1;
+
     for (let i = 0; i < keys.length; i++) {
       const key = Number.parseInt(keys[i]);
       if (id !== key)
         break;
       id++;
     }
+    
     return id;
   }
 }
