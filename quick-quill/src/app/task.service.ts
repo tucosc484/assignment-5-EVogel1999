@@ -34,4 +34,16 @@ export class TaskService {
 
     return of(result);
   }
+
+  private createID() {
+    const keys = Object.keys(localStorage);
+    let id = 1;
+    for (let i = 0; i < keys.length; i++) {
+      const key = Number.parseInt(keys[i]);
+      if (id !== key)
+        break;
+      id++;
+    }
+    return id;
+  }
 }
