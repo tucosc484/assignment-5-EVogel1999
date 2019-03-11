@@ -4,14 +4,15 @@
     Create Task
   </div>
   <hr>
-  <form>
+  <form (ngSubmit)="onSubmit()">
     <div class="form">
       <div>Task Description:</div>
       <div class="textarea_wrapper">
-        <textarea></textarea>
+        <textarea [(ngModel)]="model.description" name="description"></textarea>
       </div>
     </div>
-    <button [ngClass]="{ 'discard': true }">Discard</button>
-    <button [ngClass]="{ 'create': true }">Create</button>
+    <button [ngClass]="{ 'discard': true }" routerLink="/tasks">Discard</button>
+    <button type="reset">Clear</button>
+    <button [ngClass]="{ 'create': true }" type="submit">Create</button>
   </form>
 </div>
