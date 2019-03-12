@@ -11,8 +11,8 @@
     </div>
     <div class="button_wrapper">
       <button>Edit</button>
-      <button>Complete</button>
-      <button (click)="onDelete()">Delete</button>
+      <button [ngClass]="{ 'complete': true }">Complete</button>
+      <button [ngClass]="{ 'delete': true }" (click)="onDelete()">Delete</button>
     </div>
     <div class="description_wrapper">
       <div class="title">Description:</div>

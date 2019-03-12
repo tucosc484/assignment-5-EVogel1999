@@ -7,6 +7,8 @@ hr {
     background-color: $white;
 }
 button {
+    -moz-transition-duration: .2s;
+    transition-duration: .2s;
     padding: 20px;
     font-size: 16px;
     border: none;
@@ -16,6 +18,19 @@ button {
     width: 150px;
     cursor: pointer;
     box-shadow: 2px 2px 15px $grey;
+
+    &:hover {
+        -moz-transition-duration: .4s;
+        transition-duration: .4s;
+        background-color: $white;
+        color: $grey;
+    }
+}
+.complete {
+    background-color: $green;
+}
+.delete {
+    background-color: $red;
 }
 .wrapper {
     margin: 40px 200px;

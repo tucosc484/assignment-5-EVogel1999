@@ -32,7 +32,8 @@ button {
     &:hover {
         -moz-transition-duration: .4s;
         transition-duration: .4s;
-        background-color: $grey;
+        background-color: $white;
+        color: $grey;
     }
 }
 .textarea_wrapper {
