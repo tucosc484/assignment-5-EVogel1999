@@ -5,6 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
+/**
+ * Navbar component class.
+ * Helps with easy navigation throughout the site.
+ */
 export class NavbarComponent implements OnInit {
 
   constructor() { }
