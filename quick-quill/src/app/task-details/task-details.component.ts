@@ -12,6 +12,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class TaskDetailsComponent implements OnInit {
 
   task: Task;
+  model: Task;
+
+  editing = false;
 
   constructor(private service: TaskService, private route: ActivatedRoute, private router: Router) { }
 
@@ -20,9 +23,8 @@ export class TaskDetailsComponent implements OnInit {
       if (params)
         this.service.getTask(params.id)
         .subscribe(task => {
-          if (task) {
+          if (task)
             this.task = JSON.parse(task);
-          }
         });
     });
   }
@@ -36,6 +38,8 @@ export class TaskDetailsComponent implements OnInit {
     if (!this.task.isComplete) {
       this.task.isComplete = true;
       this.task.dateCompleted = Date().toString();
+      if (this.model)
+        this.model = this.task;
       this.service.updateTask(this.task.id, this.task);
     }
     else {
@@ -46,7 +50,26 @@ export class TaskDetailsComponent implements OnInit {
   }
 
   onEdit() {
+    this.editing = !this.editing;
+    if (this.editing) {
+      this.model = {
+        id: this.task.id,
+        description: this.task.description,
+        dateCreated: this.task.dateCreated,
+        dateCompleted: this.task.dateCompleted,
+        isComplete: this.task.isComplete
+      }
+    }
+    else {
+      this.model = undefined;
+    }
+  }
 
+  onSubmit() {
+    this.service.updateTask(this.model.id, this.model);
+    this.editing = false;
+    this.task = this.model;
+    this.model = undefined;
   }
 
 }

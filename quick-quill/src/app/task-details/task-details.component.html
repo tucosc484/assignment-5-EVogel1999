@@ -5,24 +5,46 @@
   </div>
   <hr>
   
-  <div *ngIf="task" class="task_wrapper">
+  <div *ngIf="task">
     <div class="date">
       <div class="title">Date Created:</div>
       {{ task.dateCreated }}
     </div>
+
     <div class="button_wrapper">
-      <button>Edit</button>
+      <button *ngIf="!editing" (click)="onEdit()">Edit</button>
       <button *ngIf="!task.isComplete; else uncomplete" [ngClass]="{ 'complete': true }" (click)="onComplete()">Complete</button>
       <ng-template #uncomplete>
         <button [ngClass]="{ 'complete': true }" (click)="onComplete()">Uncomplete</button>
       </ng-template>
       <button [ngClass]="{ 'delete': true }" (click)="onDelete()">Delete</button>
     </div>
-    <div class="description_wrapper">
+
+    <div *ngIf="!editing; else edit" class="description_wrapper">
       <div class="title">Description:</div>
       {{ task.description }}
     </div>
-    <div *ngIf="task.isComplete" class="date">
+
+    <ng-template #edit>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form">
+          <div>Task Description:</div>
+          <div class="textarea_wrapper">
+            <textarea [(ngModel)]="model.description" name="description"></textarea>
+          </div>
+        </div>
+        <div *ngIf="task.isComplete && editing" class="date editing">
+          <div class="title">Date Completed:</div>
+          {{ task.dateCompleted }}
+        </div>
+        <br>
+        <button class="form_button" [ngClass]="{ 'delete': true }" (click)="onEdit()">Cancel</button>
+        <button class="form_button" type="reset">Clear</button>
+        <button class="form_button" [ngClass]="{ 'complete': true }" type="submit">Done</button>
+      </form>
+    </ng-template>
+
+    <div *ngIf="task.isComplete && !editing" class="date">
       <div class="title">Date Completed:</div>
       {{ task.dateCompleted }}
     </div>
