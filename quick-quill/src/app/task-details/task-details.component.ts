@@ -18,7 +18,11 @@ export class TaskDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       if (params)
-        this.service.getTask(params.id);
+        this.service.getTask(params.id)
+        .subscribe(task => {
+          if (task)
+            this.task = JSON.parse(task);
+        });
     })
   }
 
