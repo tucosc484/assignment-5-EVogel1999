@@ -8,6 +8,10 @@ import { TaskService } from '../task.service';
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.scss']
 })
+/**
+ * Task List Component class.
+ * Gets tasks created by the user to display them via the Task List Item Component
+ */
 export class TaskListComponent implements OnInit {
 
   tasks: Task[] = [];
