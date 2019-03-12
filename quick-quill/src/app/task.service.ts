@@ -9,7 +9,7 @@ export class TaskService {
 
   constructor() { }
 
-  createTask(data) {
+  createTask(data: string) {
     let id = this.createID();
     let task: Task = {
       id: id,
@@ -23,7 +23,7 @@ export class TaskService {
     return of(JSON.stringify(task));
   }
 
-  updateTask(id: number, data) {
+  updateTask(id: number, data: Task) {
     localStorage.setItem('' + id, JSON.stringify(data));
   }
 

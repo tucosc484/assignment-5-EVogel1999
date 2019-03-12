@@ -44,7 +44,7 @@ button {
 .task_wrapper {
     margin-top: 40px;
 }
-.date_created {
+.date {
     background-color: $tinted-white;
     color: $grey;
     width: 300px;
@@ -52,6 +52,13 @@ button {
     font-size: 16px;
     display: inline-block;
     box-shadow: 2px 2px 15px $grey;
+
+    .title {
+        font-size: 18px;
+        color: $grey;
+        text-align: left;
+        margin-bottom: 10px;
+    }
 }
 .button_wrapper {
     float: right;
@@ -67,6 +74,6 @@ button {
         margin-bottom: 20px;
         color: $grey;
         text-align: left;
-        font-size: 16px;
+        font-size: 18px;
     }
 }
