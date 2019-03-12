@@ -16,4 +16,8 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+/**
+ * Empty class that serves only to assist in the routing of the site.
+ * Routing logic is done above.
+ */
 export class AppRoutingModule { }
