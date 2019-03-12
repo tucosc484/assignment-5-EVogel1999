@@ -28,7 +28,7 @@ export class TaskService {
   }
 
   deleteTask(id: number) {
-    //localStorage.removeItem('' + id);
+    localStorage.removeItem('' + id);
   }
 
   getTask(id: number): Observable<string> {
