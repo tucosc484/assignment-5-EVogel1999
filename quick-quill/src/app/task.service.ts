@@ -32,7 +32,11 @@ export class TaskService {
   }
 
   getTask(id: number): Observable<string> {
-    return of(localStorage.getItem('' + id));
+    const task = localStorage.getItem('' + id);
+    if (task)
+      return of(task);
+    else
+      return Observable.throw('Error: Task not found');
   }
 
   getTasks(): Observable<string[]> {
