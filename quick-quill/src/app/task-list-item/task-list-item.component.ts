@@ -6,6 +6,10 @@ import { Task } from '../../interfaces/task';
   templateUrl: './task-list-item.component.html',
   styleUrls: ['./task-list-item.component.scss']
 })
+/**
+ * Task List Item Component class.
+ * Holds individual task data to display on front end.
+ */
 export class TaskListItemComponent implements OnInit {
 
   @Input()
