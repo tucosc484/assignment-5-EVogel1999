@@ -20,10 +20,11 @@ export class TaskDetailsComponent implements OnInit {
       if (params)
         this.service.getTask(params.id)
         .subscribe(task => {
-          if (task)
+          if (task) {
             this.task = JSON.parse(task);
+          }
         });
-    })
+    });
   }
 
 }

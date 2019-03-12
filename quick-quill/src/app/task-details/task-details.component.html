@@ -1,2 +1,13 @@
 
-
+<div class="wrapper">
+  <div class="title">
+    Task
+  </div>
+  <hr>
+  
+  <div *ngIf="task" class="task_wrapper">
+    <div class="date_created">
+      Date Created: {{ task.dateCreated }}
+    </div>
+  </div>
+</div>

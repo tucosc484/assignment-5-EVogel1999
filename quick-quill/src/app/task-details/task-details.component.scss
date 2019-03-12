@@ -1,0 +1,17 @@
+
+@import '../../vars';
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: $white;
+}
+.wrapper {
+    margin: 40px 200px;
+}
+.title {
+    text-align: center;
+    font-size: 36px;
+    color: $white;
+    margin-bottom: 10px;
+}
