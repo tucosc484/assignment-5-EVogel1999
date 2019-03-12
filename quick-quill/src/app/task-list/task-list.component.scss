@@ -38,11 +38,13 @@ mat-spinner {
         border: none;
         margin-top: 50px;
         width: 250px;
+        box-shadow: 2px 2px 15px $grey;
 
         &:hover {
             -moz-transition-duration: .4s;
             transition-duration: .4s;
-            background-color: $grey;
+            background-color: $white;
+            color: $grey;
         }
     }
 }
