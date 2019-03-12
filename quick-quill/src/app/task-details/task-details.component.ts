@@ -53,8 +53,10 @@ export class TaskDetailsComponent implements OnInit {
     if (!this.task.isComplete) {
       this.task.isComplete = true;
       this.task.dateCompleted = Date().toString();
-      if (this.model)
-        this.model = this.task;
+      if (this.model) {
+        this.model.dateCompleted = this.task.dateCompleted;
+        this.model.isComplete = this.model.isComplete;
+      }
       this.service.updateTask(this.task.id, this.task);
     }
     else {
