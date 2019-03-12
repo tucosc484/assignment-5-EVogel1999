@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from '../../interfaces/task';
 
 import { TaskService } from '../task.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-details',
@@ -13,7 +13,7 @@ export class TaskDetailsComponent implements OnInit {
 
   task: Task;
 
-  constructor(private service: TaskService, private route: ActivatedRoute) { }
+  constructor(private service: TaskService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -25,6 +25,19 @@ export class TaskDetailsComponent implements OnInit {
           }
         });
     });
+  }
+
+  onDelete() {
+    this.service.deleteTask(this.task.id);
+    this.router.navigate(['/tasks']);
+  }
+
+  onComplete() {
+
+  }
+
+  onEdit() {
+
   }
 
 }
