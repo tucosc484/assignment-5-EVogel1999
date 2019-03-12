@@ -24,7 +24,7 @@ export class TaskService {
   }
 
   updateTask(id: number, data) {
-    //localStorage.setItem('' + id, JSON.stringify(data));
+    localStorage.setItem('' + id, JSON.stringify(data));
   }
 
   deleteTask(id: number) {
