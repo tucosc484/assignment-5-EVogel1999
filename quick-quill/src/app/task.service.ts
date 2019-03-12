@@ -31,11 +31,11 @@ export class TaskService {
     //localStorage.removeItem('' + id);
   }
 
-  getTask(id: number) {
-    //localStorage.getItem('' + id);
+  getTask(id: number): Observable<string> {
+    return of(localStorage.getItem('' + id));
   }
 
-  getTasks(): Observable<any[]> {
+  getTasks(): Observable<string[]> {
     const keys = Object.keys(localStorage);
 
     let result = [];
