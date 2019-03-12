@@ -9,6 +9,10 @@ import { Task } from '../../interfaces/task';
   templateUrl: './create-task.component.html',
   styleUrls: ['./create-task.component.scss']
 })
+/**
+ * Component class that holds methods and logic to create a new task.
+ * Holds a model that is used to create a task using the onSubmit function.
+ */
 export class CreateTaskComponent implements OnInit {
 
   model = {
@@ -20,6 +24,10 @@ export class CreateTaskComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Creates task using a form and model, calling the Task Service service.
+   * It then sends the user to the newly created task's detail page.
+   */
   onSubmit() {
     this.service.createTask(this.model.description)
     .subscribe(task => {
