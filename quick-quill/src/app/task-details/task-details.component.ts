@@ -9,6 +9,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './task-details.component.html',
   styleUrls: ['./task-details.component.scss']
 })
+/**
+ * Task details component class.
+ * Holds logic to get task given a id, edit task, complete task,
+ * or delete task.
+ */
 export class TaskDetailsComponent implements OnInit {
 
   task: Task;
@@ -29,11 +34,21 @@ export class TaskDetailsComponent implements OnInit {
     });
   }
 
+  /**
+   * When the user clicks the Delete button, it triggers this method.
+   * This method sends the task id to delete to the Task Service service.
+   * It then redirects users back to the task list page.
+   */
   onDelete() {
     this.service.deleteTask(this.task.id);
     this.router.navigate(['/tasks']);
   }
 
+  /**
+   * When the user clicks on the Complete/Uncomplete button, it triggers this method.
+   * This method sets the task to complete or uncomplete and records the time accordingly.
+   * Then it sends the updated info to the Task Service service for update.
+   */
   onComplete() {
     if (!this.task.isComplete) {
       this.task.isComplete = true;
@@ -49,6 +64,11 @@ export class TaskDetailsComponent implements OnInit {
     }
   }
 
+  /**
+   * When the user clicks on the Edit button, it triggers this method.
+   * This method toggles the editing view and sets up the model used to
+   * save changes accordingly.
+   */
   onEdit() {
     this.editing = !this.editing;
     if (this.editing) {
@@ -65,6 +85,11 @@ export class TaskDetailsComponent implements OnInit {
     }
   }
 
+  /**
+   * When the user clicks on the Done button, it triggers this method.
+   * This method saves the changes to the description, gotten from
+   * 'model', of the task by using a Task Service service function call.
+   */
   onSubmit() {
     this.service.updateTask(this.model.id, this.model);
     this.editing = false;
