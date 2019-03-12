@@ -31,4 +31,7 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+/**
+ * Main module for the 'Quick Quill' angular app.
+ */
 export class AppModule { }
