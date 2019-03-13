@@ -21,8 +21,18 @@ export class TaskDetailsComponent implements OnInit {
 
   editing = false;
 
+  /**
+   * Constructor that initializes the following parameters
+   * @param service Task Service, used to get and update a task
+   * @param route Route, used to get id parameter for task
+   * @param router Router, used to route to other components in app
+   */
   constructor(private service: TaskService, private route: ActivatedRoute, private router: Router) { }
 
+  /**
+   * Subscribes to the parameters to get an individual task by id
+   * getTask is subscribed to to get any changes from the task
+   */
   ngOnInit() {
     this.route.params.subscribe(params => {
       if (params)

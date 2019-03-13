@@ -17,8 +17,16 @@ export class TaskListComponent implements OnInit {
   tasks: Task[] = [];
   error;
 
+  /**
+   * Constructor that initializes the parameters listed bellow
+   * @param service Holds task service task which gets list of tasks
+   */
   constructor(private service: TaskService) { }
 
+  /**
+   * Subscribes to the getTasks method in Task Service to get the list of tasks
+   * a user has
+   */
   ngOnInit() {
     this.service.getTasks().subscribe(tasks => {
       if (tasks)

@@ -17,8 +17,14 @@ export class TaskListItemComponent implements OnInit {
 
   description: string;
 
+  /**
+   * Empty constructor
+   */
   constructor() { }
 
+  /**
+   * Caps the string visible by 400 characters and ends it with a ellipse
+   */
   ngOnInit() {
     this.description = this.task.description.substring(0, 400) + '...';
   }

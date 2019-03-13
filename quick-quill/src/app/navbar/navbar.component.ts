@@ -11,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
  */
 export class NavbarComponent implements OnInit {
 
+  /**
+   * Empty constructor for Navbar Component class
+   */
   constructor() { }
 
-  ngOnInit() {
-  }
+  /**
+   * Empty ngOnInit function for the Navbar Component class
+   */
+  ngOnInit() { }
 
 }

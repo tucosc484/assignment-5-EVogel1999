@@ -19,10 +19,17 @@ export class CreateTaskComponent implements OnInit {
     description: ''
   };
 
+  /**
+   * Constructor for the Create Task Componenet class
+   * @param router Angular router, used to route to other components
+   * @param service Task Service, used to create new task
+   */
   constructor(private router: Router, private service: TaskService) { }
 
-  ngOnInit() {
-  }
+  /**
+   * Empty ngOnInit function
+   */
+  ngOnInit() { }
 
   /**
    * Creates task using a form and model, calling the Task Service service.
