@@ -67,13 +67,16 @@ export class TaskDetailsComponent implements OnInit {
         this.model.dateCompleted = this.task.dateCompleted;
         this.model.isComplete = this.model.isComplete;
       }
-      this.service.updateTask(this.task.id, this.task);
     }
     else {
       this.task.isComplete = false;
       this.task.dateCompleted = '';
-      this.service.updateTask(this.task.id, this.task);
+      if (this.model) {
+        this.model.dateCompleted = this.task.dateCompleted;
+        this.task.isComplete = this.task.isComplete;
+      }
     }
+    this.service.updateTask(this.task.id, this.task);
   }
 
   /**
