@@ -85,6 +85,7 @@ export class TaskService {
    */
   private createID(): number {
     const keys = Object.keys(localStorage);
+    keys.sort();
     let id = 1;
 
     for (let i = 0; i < keys.length; i++) {
