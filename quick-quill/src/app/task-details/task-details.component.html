@@ -8,7 +8,7 @@
   <div *ngIf="task">
     <div class="date">
       <div class="title">Date Created:</div>
-      {{ task.dateCreated }}
+      {{ task.dateCreated.toString() }}
     </div>
 
     <div class="button_wrapper">
@@ -35,7 +35,7 @@
         </div>
         <div *ngIf="task.isComplete && editing" class="date editing">
           <div class="title">Date Completed:</div>
-          {{ task.dateCompleted }}
+          {{ task.dateCompleted.toString() }}
         </div>
         <br>
         <button class="form_button" [ngClass]="{ 'delete': true }" (click)="onEdit()">Cancel</button>
@@ -46,7 +46,7 @@
 
     <div *ngIf="task.isComplete && !editing" class="date">
       <div class="title">Date Completed:</div>
-      {{ task.dateCompleted }}
+      {{ task.dateCompleted.toString() }}
     </div>
   </div>
 </div>

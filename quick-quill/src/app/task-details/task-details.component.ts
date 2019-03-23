@@ -62,7 +62,7 @@ export class TaskDetailsComponent implements OnInit {
   onComplete() {
     if (!this.task.isComplete) {
       this.task.isComplete = true;
-      this.task.dateCompleted = Date().toString();
+      this.task.dateCompleted = new Date();
       if (this.model) {
         this.model.dateCompleted = this.task.dateCompleted;
         this.model.isComplete = this.model.isComplete;
@@ -70,7 +70,7 @@ export class TaskDetailsComponent implements OnInit {
     }
     else {
       this.task.isComplete = false;
-      this.task.dateCompleted = '';
+      this.task.dateCompleted = undefined;
       if (this.model) {
         this.model.dateCompleted = this.task.dateCompleted;
         this.task.isComplete = this.task.isComplete;

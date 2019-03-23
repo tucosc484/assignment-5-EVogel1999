@@ -24,7 +24,7 @@ export class TaskService {
     let id = this.createID();
     let task: Task = {
       id: id,
-      dateCreated: Date().toString(),
+      dateCreated: new Date(),
       description: data,
       isComplete: false
     };
