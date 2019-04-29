@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { of, Observable } from 'rxjs';
 import { Task } from '../interfaces/task';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class TaskService {
   /**
    * Empty constructor for Task Service
    */
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   /**
    * Creates a new task given description data, returns a string if created successfully.
