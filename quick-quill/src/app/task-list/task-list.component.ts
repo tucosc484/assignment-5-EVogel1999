@@ -28,13 +28,9 @@ export class TaskListComponent implements OnInit {
    * a user has
    */
   ngOnInit() {
-    this.service.getTasks().subscribe(tasks => {
-      if (tasks)
-        tasks.map(task => {
-          this.tasks.push(JSON.parse(task));
-        });
-    },
-    e => this.error = e );
+    this.service.getTasks().then(val => {
+      this.tasks = val;
+    }).catch(e => this.error = e);
   }
 
 }

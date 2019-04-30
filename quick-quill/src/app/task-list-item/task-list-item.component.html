@@ -1,5 +1,5 @@
 
-<div class="task_center" routerLink="/tasks/{{ task.id }}" routerLinkActive="active">
+<div class="task_center" routerLink="/tasks/{{ task._id }}" routerLinkActive="active">
   <div class="task_wrapper" [ngClass]="{ 'complete': task.isComplete }">
     {{ description }}
   </div>

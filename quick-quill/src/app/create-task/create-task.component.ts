@@ -35,14 +35,9 @@ export class CreateTaskComponent implements OnInit {
    * Creates task using a form and model, calling the Task Service service.
    * It then sends the user to the newly created task's detail page.
    */
-  onSubmit() {
-    this.service.createTask(this.model.description)
-    .subscribe(task => {
-      if (task) {
-        const newTask: Task = JSON.parse(task);
-        this.router.navigate(['/tasks/', newTask.id]);
-      }
-    });
+  async onSubmit() {
+    await this.service.createTask(this.model.description);
+    this.router.navigate(['']);
   }
 
 }

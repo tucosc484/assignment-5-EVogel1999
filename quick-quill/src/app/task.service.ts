@@ -19,20 +19,12 @@ export class TaskService {
   /**
    * Creates a new task given description data, returns a string if created successfully.
    * @param data The description data of a new task
-   * @returns {Observable<string>} Returns task as a string if successfully created
+   * @returns {Promise<any>} Verifies the request was completed
    */
-  createTask(data: string): Observable<string> {
-    let id = this.createID();
-    let task: Task = {
-      id: id,
-      dateCreated: new Date(),
-      description: data,
-      isComplete: false
-    };
-
-    localStorage.setItem('' + id, JSON.stringify(task));
-
-    return of(JSON.stringify(task));
+  createTask(data: string) {
+    return this.http.post('https://assignment-6-tasks-api.herokuapp.com/api/tasks', {
+      description: data
+    }, { responseType: 'text' }).toPromise();
   }
 
   /**
@@ -40,16 +32,16 @@ export class TaskService {
    * @param id The id of a given task
    * @param data The data to update a given task, uses the Task interface
    */
-  updateTask(id: number, data: Task) {
-    localStorage.setItem('' + id, JSON.stringify(data));
+  updateTask(id: string, data: Task) {
+    return this.http.patch('https://assignment-6-tasks-api.herokuapp.com/api/tasks/'+id, data).toPromise();
   }
 
   /**
    * Deletes a task given a task id
    * @param id The id of a given task
    */
-  deleteTask(id: number) {
-    localStorage.removeItem('' + id);
+  deleteTask(id: string) {
+    return this.http.delete('https://assignment-6-tasks-api.herokuapp.com/api/tasks/'+id).toPromise();
   }
 
   /**
@@ -57,45 +49,15 @@ export class TaskService {
    * @param id The id of a given task
    * @returns {string} Returns the task in string format
    */
-  getTask(id: number): Observable<string> {
-    const task = localStorage.getItem('' + id);
-    if (task)
-      return of(task);
-    else
-      return Observable.throw('Error: Task not found');
+  getTask(id: string): Promise<Task> {
+    return this.http.get<Task>('https://assignment-6-tasks-api.herokuapp.com/api/tasks/'+id).toPromise();
   }
 
   /**
    * Returns the tasks a user has in a string of arrays
-   * @returns {string[]} Returns tasks in string array format
+   * @returns {Task[]} Returns tasks array
    */
-  getTasks(): Observable<string[]> {
-    const keys = Object.keys(localStorage);
-
-    let result = [];
-    keys.forEach(key => {
-      result.push(localStorage.getItem(key));
-    });
-
-    return of(result);
-  }
-
-  /**
-   * Finds an open ID number given what is in local storage
-   * @returns {number} Returns a unique and valid id number
-   */
-  private createID(): number {
-    const keys = Object.keys(localStorage);
-    keys.sort();
-    let id = 1;
-
-    for (let i = 0; i < keys.length; i++) {
-      const key = Number.parseInt(keys[i]);
-      if (id !== key)
-        break;
-      id++;
-    }
-
-    return id;
+  getTasks(): Promise<Task[]> {
+    return this.http.get<Task[]>('https://assignment-6-tasks-api.herokuapp.com/api/tasks').toPromise();
   }
 }

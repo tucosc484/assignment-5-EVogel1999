@@ -36,10 +36,8 @@ export class TaskDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       if (params)
-        this.service.getTask(params.id)
-        .subscribe(task => {
-          if (task)
-            this.task = JSON.parse(task);
+        this.service.getTask(params.id).then(val => {
+          this.task = val;
         });
     });
   }
@@ -49,8 +47,8 @@ export class TaskDetailsComponent implements OnInit {
    * This method sends the task id to delete to the Task Service service.
    * It then redirects users back to the task list page.
    */
-  onDelete() {
-    this.service.deleteTask(this.task.id);
+  async onDelete() {
+    await this.service.deleteTask(this.task._id);
     this.router.navigate(['/tasks']);
   }
 
@@ -59,7 +57,7 @@ export class TaskDetailsComponent implements OnInit {
    * This method sets the task to complete or uncomplete and records the time accordingly.
    * Then it sends the updated info to the Task Service service for update.
    */
-  onComplete() {
+  async onComplete() {
     if (!this.task.isComplete) {
       this.task.isComplete = true;
       this.task.dateCompleted = new Date();
@@ -76,7 +74,7 @@ export class TaskDetailsComponent implements OnInit {
         this.task.isComplete = this.task.isComplete;
       }
     }
-    this.service.updateTask(this.task.id, this.task);
+    await this.service.updateTask(this.task._id, this.task);
   }
 
   /**
@@ -88,7 +86,7 @@ export class TaskDetailsComponent implements OnInit {
     this.editing = !this.editing;
     if (this.editing) {
       this.model = {
-        id: this.task.id,
+        _id: this.task._id,
         description: this.task.description,
         dateCreated: this.task.dateCreated,
         dateCompleted: this.task.dateCompleted,
@@ -105,8 +103,8 @@ export class TaskDetailsComponent implements OnInit {
    * This method saves the changes to the description, gotten from
    * 'model', of the task by using a Task Service service function call.
    */
-  onSubmit() {
-    this.service.updateTask(this.model.id, this.model);
+  async onSubmit() {
+    await this.service.updateTask(this.model._id, this.model);
     this.editing = false;
     this.task = this.model;
     this.model = undefined;
